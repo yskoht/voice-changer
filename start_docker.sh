@@ -6,7 +6,7 @@ DOCKER_IMAGE=vcclient
 
 ### DEFAULT VAR ###
 DEFAULT_EX_PORT=18888
-DEFAULT_USE_GPU=on # on|off
+DEFAULT_USE_GPU=off # on|off
 DEFAULT_USE_LOCAL=off # on|off
 ### ENV VAR ###
 EX_PORT=${EX_PORT:-${DEFAULT_EX_PORT}}
