@@ -2,7 +2,7 @@
 
 # ARG DEBIAN_FRONTEND=noninteractive
 
-# RUN apt-get update 
+# RUN apt-get update
 # RUN apt-get install -y python3-pip git
 
 # RUN pip install torch==1.13.1
@@ -33,7 +33,7 @@ FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
 # FROM nvidia/cuda:12.0.1-cudnn8-runtime-ubuntu22.04
 
 RUN apt-get update \
-        && apt-get install -y python3-pip espeak gosu libsndfile1-dev emacs git \
+        && apt-get install -y python3-pip espeak gosu libsndfile1-dev emacs git cmake \
         && apt-get clean \
         && rm -rf /var/lib/apt/lists/*
 
@@ -48,6 +48,7 @@ ADD /exec.sh  /voice-changer/server
 
 RUN chmod 0777 /voice-changer/server
 WORKDIR /voice-changer/server
+RUN sed -i 's/onnxruntime-gpu/onnxruntime/' requirements.txt
 RUN pip install -r requirements.txt
 
 RUN git clone https://github.com/isletennos/MMVC_Client.git MMVC_Client_v13
