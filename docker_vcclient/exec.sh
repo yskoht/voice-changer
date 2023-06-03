@@ -2,7 +2,7 @@
 
 set -eu
 
-cp -r /weights/* /voice-changer/server/
+cp -r /weights/* /voice-changer/server/ || true
 # /bin/bash
 
 python3 MMVCServerSIO.py $@
