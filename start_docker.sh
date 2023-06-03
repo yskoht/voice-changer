@@ -1,8 +1,8 @@
 #!/bin/bash
 set -eu
 
-DOCKER_IMAGE=dannadori/vcclient:20230602_014557
-#DOCKER_IMAGE=vcclient
+#DOCKER_IMAGE=dannadori/vcclient:20230602_014557
+DOCKER_IMAGE=vcclient
 
 ### DEFAULT VAR ###
 DEFAULT_EX_PORT=18888
