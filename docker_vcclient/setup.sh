@@ -9,7 +9,10 @@ GROUP_ID=${LOCAL_GID:-9001}
 
 echo "exec with [UID : $USER_ID, GID: $GROUP_ID]"
 useradd -u $USER_ID -o -m user
-groupmod -g $GROUP_ID user
+GROUP_NAME=`getent group $GROUP_ID | cut -d: -f1`
+echo $GROUP_NAME
+usermod -g $GROUP_NAME user
+# groupmod -g $GROUP_ID user
 
 #su user
 #echo "parameter: $@"
